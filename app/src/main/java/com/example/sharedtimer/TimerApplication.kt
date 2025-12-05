@@ -22,10 +22,7 @@ class TimerApplication : Application() {
         
         // WICHTIG: Ersetze mit deiner OneSignal App ID
         OneSignal.initWithContext(this, "YOUR_ONESIGNAL_APP_ID")
-        
-        // Optional: User Consent einholen (DSGVO)
-        OneSignal.Notifications.requestPermission(true)
-        
+
         // Optional: OneSignal User ID loggen
         OneSignal.User.pushSubscription.id?.let { userId ->
             android.util.Log.d("TimerApplication", "OneSignal User ID: $userId")
