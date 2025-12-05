@@ -12,8 +12,9 @@
     <color name="text_secondary">#757575</color>
     
     <color name="alarm_red">#D32F2F</color>
+    <color name="white">#FFFFFF</color>
     <color name="white_transparent">#80FFFFFF</color>
-    
+
     <color name="error">#F44336</color>
     <color name="success">#4CAF50</color>
 </resources>
