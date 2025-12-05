@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Abhol-Timer</string>
+    
+    <string name="child_name_hint">Name des Kindes</string>
+    <string name="select_date_time">Datum &amp; Uhrzeit wählen</string>
+    <string name="create_timer">Timer erstellen</string>
+    <string name="empty_state">Keine Timer vorhanden\n\nErstelle einen neuen Timer\num loszulegen</string>
+    
+    <string name="stop_alarm">Alarm stoppen</string>
+    <string name="snooze_5_min">5 Minuten Schlummern</string>
+    <string name="alarm_icon">Alarm Icon</string>
+    
+    <string name="child_icon">Kind Icon</string>
+    <string name="delete_timer">Timer löschen</string>
+    
+    <string name="permission_notification_title">Benachrichtigungen erlauben</string>
+    <string name="permission_notification_message">Diese App benötigt die Berechtigung für Benachrichtigungen, um dich an Timer zu erinnern.</string>
+    
+    <string name="error_no_name">Bitte gib einen Namen ein</string>
+    <string name="error_no_time">Bitte wähle Datum und Uhrzeit</string>
+    <string name="error_time_past">Die Zeit muss in der Zukunft liegen</string>
+</resources>

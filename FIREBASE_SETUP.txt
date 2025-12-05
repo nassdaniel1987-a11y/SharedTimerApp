@@ -1,0 +1,55 @@
+═══════════════════════════════════════════════════════════
+  WICHTIG: Firebase google-services.json fehlt noch!
+═══════════════════════════════════════════════════════════
+
+Die Datei google-services.json muss von Firebase heruntergeladen werden.
+
+SCHRITT-FÜR-SCHRITT ANLEITUNG:
+==============================
+
+1. Gehe zu: https://console.firebase.google.com
+
+2. Klicke auf "Projekt hinzufügen"
+   - Name: SharedTimerApp
+   - Google Analytics: Optional
+   - Erstellen klicken
+
+3. Android-App hinzufügen:
+   - Klicke auf das Android-Symbol
+   - Android-Paketname: com.example.sharedtimer
+   - App-Spitzname: SharedTimerApp (optional)
+   - "App registrieren" klicken
+
+4. google-services.json herunterladen:
+   - Lade die Datei herunter
+   - Kopiere sie in: SharedTimerApp/app/
+   
+   WICHTIG: Die Datei muss in app/ liegen, NICHT in app/src/!
+   
+   Richtig:  SharedTimerApp/app/google-services.json
+   Falsch:   SharedTimerApp/app/src/google-services.json
+
+5. Firestore aktivieren:
+   - In Firebase Console: Build → Firestore Database
+   - "Datenbank erstellen" klicken
+   - Testmodus wählen (für Entwicklung)
+   - Region: europe-west3 (Frankfurt)
+   - "Aktivieren" klicken
+
+6. Firestore-Regeln (für Entwicklung):
+   ```javascript
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /timers/{document=**} {
+         allow read, write: if true; // NUR FÜR ENTWICKLUNG!
+       }
+     }
+   }
+   ```
+
+OHNE google-services.json WIRD DIE APP NICHT FUNKTIONIEREN!
+
+Nach dem Hinzufügen von google-services.json:
+- File → Sync Project with Gradle Files
+- Build → Make Project
