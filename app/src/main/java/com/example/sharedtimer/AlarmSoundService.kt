@@ -10,6 +10,7 @@ import android.content.Intent
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
+import android.media.RingtoneManager
 import android.os.Build
 import android.os.IBinder
 import android.os.PowerManager
@@ -89,12 +90,14 @@ class AlarmSoundService : Service() {
             
             mediaPlayer = MediaPlayer().apply {
                 setAudioAttributes(audioAttributes)
-                
-                // Lege deine Alarm-Sound-Datei in res/raw/alarm_sound.mp3
-                setDataSource(applicationContext, android.net.Uri.parse(
-                    "android.resource://${packageName}/${R.raw.alarm_sound}"
-                ))
-                
+
+                // Verwende System-Alarm-Sound (kein benutzerdefinierter Sound nötig!)
+                val alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
+                    ?: RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+                    ?: android.provider.Settings.System.DEFAULT_ALARM_ALERT_URI
+
+                setDataSource(applicationContext, alarmUri)
+
                 isLooping = true
                 
                 // Maximale Lautstärke
